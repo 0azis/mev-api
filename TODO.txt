@@ -1,0 +1,4 @@
+TODO:
+1. Make a dockerfile for Postgresql storage
+2. Make a CRUD class for storage
+3. Complete all connections to the exchange sockets (and put them into threading)

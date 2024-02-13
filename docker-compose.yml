@@ -1,0 +1,12 @@
+version: "3.9"
+services:
+  store:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: "mevdb"
+      POSTGRES_USER: "roler"
+      POSTGRES_PASSWORD: "roler123"
+    # volumes:
+    #   - "./init.sql:/docker-entrypoint-initdb.d/init.sql"
+    ports:
+      - "5433:5432"

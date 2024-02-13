@@ -1,16 +1,24 @@
-from pybit.unified_trading import WebSocket
-from time import sleep
-import json
+from pybit.unified_trading import MarketHTTP, WebSocket
+from analyzer import helloSocket
 
-ws = WebSocket(
-    testnet=False,
-    channel_type="spot",
-)
+def BybitPy():
+	print("Bybit started")
 
-def handle_orderbook(message):
-    print(message["data"])
+	client = MarketHTTP(
+		testnet=False
+	)
+	coinsList = []
+	for x in client.get_tickers(category="spot")["result"]["list"]:
+		coinsList.append(x["symbol"])
 
-ws.orderbook_stream(1, "BTCUSDT", handle_orderbook)
+	ws = WebSocket(
+	    testnet=False,
+	    channel_type="spot",
+	)
 
-while True:
-	pass
+	for x in range(0, 510, 10):
+		ws.trade_stream(coinsList[x:x+10], helloSocket)
+
+	while True:
+	    pass
+

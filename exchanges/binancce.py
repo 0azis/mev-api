@@ -1,17 +1,17 @@
-import time
+from analyzer import helloSocket
 
+from binance.client import Client
 from binance import ThreadedWebsocketManager
 
-symbol = 'BTCUSDT'
+def BinancePy():
+	print("Binance Started")
 
-twm = ThreadedWebsocketManager()
+	client = Client()
+	twm = ThreadedWebsocketManager()
+	twm.start()
 
-twm.start()
+	coinsList = []
+	for x in client.get_all_tickers():
+		twm.start_kline_socket(helloSocket, x["symbol"])
 
-def handle_socket_message(msg):
-    print(msg)
-
-twm.start_kline_socket(callback=handle_socket_message, symbol=symbol)
-
-twm.join()
-
+	twm.join()
