@@ -1,13 +1,12 @@
-DROP DATABASE IF EXISTS mevdb;
-CREATE DATABASE mevdb;
-CREATE TABLE coins (
-	bybit int,
-	binance int,
-	mexc int, 
-	tokocrypto int,
-	pionex int,
-	bitget int,
-	hotcoin int,
-	bitmart int,
-	bitrue int
+CREATE TABLE coins(
+	pair varchar(255) unique,
+	bybit decimal, 
+	binance decimal,
+	mexc decimal,
+	tokocrypto decimal,
+	pionex decimal,
+	bitget decimal,
+	hotcoin decimal,
+	bitmart decimal,
+	bitrue decimal
 );

@@ -1,4 +1,4 @@
 TODO:
-1. Make a dockerfile for Postgresql storage
-2. Make a CRUD class for storage
+1. Make a dockerfile for Postgresql storage (DONE)
+2. Make a CRUD class for storage (50%)
 3. Complete all connections to the exchange sockets (and put them into threading)
