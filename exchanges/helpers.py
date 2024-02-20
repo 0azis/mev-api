@@ -5,9 +5,11 @@ from store import Store
 def handleCoins(msg, exchange):
 	store = Store()
 	if exchange == "bybit":
+		print(exchange)
 		store.Insert(msg['data'][0]['p'], msg['data'][0]['s'], exchange)
 	if exchange == "binance":
 		store.Insert(msg['k']['o'], msg['s'], exchange)
+		print(exchange)
 
 def pureCoins(*exchanges) -> list:
     # print(len(exchanges['binance']) + len(exchanges['bybit'])) # 2990
