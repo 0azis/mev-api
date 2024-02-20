@@ -11,7 +11,6 @@ class Store:
         except Exception as _ex:
             print(_ex)
 
-
 class LocalStore:
     store = {
         'bybit': [],

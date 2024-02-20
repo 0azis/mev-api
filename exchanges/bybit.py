@@ -1,19 +1,17 @@
 from pybit.unified_trading import MarketHTTP, WebSocket
-from sender import handleCoins
+from helpers import handleCoins
 
 
-
-class Bybit:
-	def Init(self):
+class Bybit():
+	def Init(self, coins):
 		print("Bybit started")
 
 		ws = WebSocket(
 			testnet=False,
 			channel_type="spot",
 		)
-
-		for x in range(0, 510, 10):
-			ws.trade_stream(self.GetCoinsList()[x:x+10], lambda data, exchange="bybit", **kw: handleCoins(data, exchange))
+		for x in range(0, len(coins), 10):
+			ws.trade_stream(coins[x:x+10], lambda data, exchange="bybit", **kw: handleCoins(data, exchange))
 
 		while True:
 			pass
