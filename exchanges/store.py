@@ -13,15 +13,19 @@ class Store:
         except Exception as _ex:
             print(_ex)
 
-class LocalStore:
-    store = {
-        'bybit': [],
-        'binance': []
-    }
 
-    def Insert(self, price: int, coin: str, exchange: str):
-        self.store[exchange] = {coin: price}
 
-    def Select(self):
-        print(self.store)
+# The another option to use store in our service
+
+# class LocalStore:
+#     store = {
+#         'bybit': [],
+#         'binance': []
+#     }
+
+#     def Insert(self, price: int, coin: str, exchange: str):
+#         self.store[exchange] = {coin: price}
+
+#     def Select(self):
+#         print(self.store)
 

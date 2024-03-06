@@ -1,6 +1,5 @@
 from exchanges.store import Store
 import time
-from bot import bot
 
 
 class Analyzer(Store):
@@ -12,8 +11,9 @@ class Analyzer(Store):
             columns = cur.description
             for x in range(1, len(lastCoins)):
                 if (lastCoins[x] != None and lastCoins[x+1] != None) and lastCoins[x] - lastCoins[x+1] < 1:
-                    bot.send_message(message.from_user.id, lastCoins)
+                    print("GOT IT!")
             time.sleep(0.5)
+            
 
 anal = Analyzer()
 anal.SlideThrough()

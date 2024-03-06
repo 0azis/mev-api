@@ -8,12 +8,11 @@ bybit = Bybit()
 binance = Binance()
 # ... (and so on)
 
-listOfCoins = pureCoins(bybit.GetCoinsList(), binance.GetCoinsList())
 
 # run the Init functions (by threads)
 if __name__ == "__main__":
-	p2 = Process(target=binance.Init, args=(listOfCoins,))
-	p1 = Process(target=bybit.Init, args=(listOfCoins,))	
+	p2 = Process(target=binance.Init, args=(binance.GetCoinsList(),))
+	p1 = Process(target=bybit.Init, args=(bybit.GetCoinsList(),))	
 
 	p1.start()
 	p2.start()
